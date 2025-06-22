@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forever Yours</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fff0f5, #ff99aa);
+      color: #880e4f;
+      text-align: center;
+      padding: 30px 15px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      font-family: 'Brush Script MT', cursive;
+      color: #c2185b;
+      text-shadow: 0 0 20px #ff80ab;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin: 0 auto 30px;
+      max-width: 90%;
+      line-height: 1.6em;
+    }
+
+    .big-heart {
+      font-size: 4em;
+      animation: pulse 2s infinite;
+      color: #e91e63;
+      margin-top: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 0 10px #f8bbd0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Forever Yours 💞</h1>
+  <p>
+    No matter where we are or what life brings...<br />
+    My heart is always with you.<br />
+    You’re not just my love — you are my home, my peace, and my forever. 💖
+  </p>
+  <div class="big-heart">❤️</div>
+  <p>Thank you for being you.</p>
+  <button onclick="location.href='index.html'">Start Again 🔁</button>
+
+  <audio autoplay loop muted onplay="this.muted=false">
+    <source src="https://files.catbox.moe/pjmxo8.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Hearts -->
+  <style>
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      top: -20px;
+      animation: fall 10s linear infinite;
+      opacity: 0.6;
+      border-radius: 50%;
+      z-index: 9999;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(45deg); }
+      100% { transform: translateY(100vh) rotate(45deg); }
+    }
+  </style>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
