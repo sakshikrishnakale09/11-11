@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You Are Special</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(#fff0f5, #ffc0cb);
+      font-family: 'Georgia', serif;
+      color: #c2185b;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: glow 2s infinite alternate;
+    }
+    #message {
+      font-size: 1.3em;
+      max-width: 90%;
+      margin: auto;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #f06292; }
+      to { text-shadow: 0 0 18px #e91e63; }
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 0 10px #f48fb1;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>For You, My Love</h1>
+  <div id="message"></div>
+  <button onclick="location.href='page2.html'">Next ➡️</button>
+
+  <audio autoplay loop muted onplay="this.muted=false">
+    <source src="https://files.catbox.moe/pjmxo8.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Hearts Effect -->
+  <style>
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      top: -20px;
+      animation: fall 10s linear infinite;
+      opacity: 0.6;
+      border-radius: 50%;
+      z-index: 9999;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(45deg); }
+      100% { transform: translateY(100vh) rotate(45deg); }
+    }
+  </style>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+
+    const message = "Every moment with you is a beautiful chapter in my life.\nYou're the smile to my mornings and the peace to my nights.\nThis journey we share means everything to me.";
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("message").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    typeWriter();
+  </script>
+</body>
+</html>
