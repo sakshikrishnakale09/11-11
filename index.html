@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: radial-gradient(#ffe6eb, #ffc0cb);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #880e4f;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      animation: glow 2s infinite alternate;
+    }
+    button {
+      padding: 15px 25px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #f06292;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #f8bbd0;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #f06292; }
+      to { text-shadow: 0 0 25px #ec407a; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Love Story 💖</h1>
+  <button onclick="location.href='page1.html'">Click to Begin</button>
+  <audio autoplay loop muted onplay="this.muted=false">
+    <source src="https://files.catbox.moe/pjmxo8.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Hearts Effect -->
+  <style>
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      top: -20px;
+      animation: fall 10s linear infinite;
+      opacity: 0.6;
+      border-radius: 50%;
+      z-index: 9999;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(45deg); }
+      100% { transform: translateY(100vh) rotate(45deg); }
+    }
+  </style>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
